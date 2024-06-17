@@ -1,0 +1,11 @@
+:root {
+    --theme: #FFFFFF;
+    --flavor: #2396FF;
+
+    --text-primary: #232323;
+    --text-secondary: #777777;
+
+    --btn-background: #FBFBFB;
+    --btn-border: #A5A5A5;
+    --btn-text: #777777;
+}

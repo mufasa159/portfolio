@@ -1,0 +1,27 @@
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 40px 0px;
+}
+
+button {
+    background-color: var(--btn-background);
+    border: 1px solid var(--btn-border);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--btn-text);
+    padding: 5px 10px;
+    margin: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: var(--flavor);
+    color: var(--theme);
+    border: 1px solid var(--flavor);
+}

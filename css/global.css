@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+* {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-primary);
+}
+
+body {
+    background-color: var(--theme);
+}
+
+body,
+p,
+a,
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+s::before,
+s::after {
+    clip-path: inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+s::before {
+    content: " [start of stricken text] ";
+}
+
+s::after {
+    content: " [end of stricken text] ";
+}
+
+b {
+    font-weight: 600;
+}
+
+footer p {
+    /* footer is hidden because of minimalism */
+    color: var(--theme);
+    font-size: 10px;
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+    margin: 130px auto;
+    padding: 0px 50px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 300;
+    margin: 5px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0px 30px;
+    }
+}
