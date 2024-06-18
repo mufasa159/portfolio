@@ -5,50 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mufasa's Portfolio</title>
 
-    <link rel="icon" href="./assets/icon.webp" type="image/x-icon">
-    <link rel="apple-touch-icon" href="./assets/favicon.ico">
+    <!-- icons and images -->
+    <link rel="icon" href="/assets/icon.webp" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/favicon.ico">
 
-    <!-- make sure to update the following meta tags for better SEO -->
+    <!-- meta tags for SEO -->
     <meta name="description" content="Mufasa's portfolio">
     <meta name="keywords" content="mufasa, mufasa alam, muhfasul, muhfasul alam, mufasa a, alam, portfolio">
     <meta name="author" content="mufasa159">
     <meta name="robots" content="index, follow">
-    <meta name="og:image" content="./assets/image.webp">
+    <meta name="og:image" content="/assets/image.webp">
     <meta name="og:url" content="https://mufasa.cc/">
 
-    <link rel="stylesheet" href="./css/variables.css">
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="stylesheet" href="./css/buttons.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/buttons.css">
 
-    <script type="text/javascript" defer>
-        fetch('/config/home.json', {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('greeting').innerHTML = data.greeting;
-            document.getElementById('intro-1').innerHTML = data.introduction.line_1;
-            document.getElementById('intro-2').innerHTML = data.introduction.line_2;
-            document.getElementById('portfolio-navigation').innerHTML = data.buttons.map(item => {
-                return `<button onclick="${item.opens}">${item.text}</button>`;
-            }).join('');
-        });
-    </script>
+    <script type="text/javascript" src="/script.js" defer></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="m">
         <div>
-            <h1 class="title" id="greeting"></h1><br/>
-            <p class="title" id="intro-1"></p>
-            <p class="title" id="intro-2"></p>
+            <h1 class="title" id="g"></h1><br/>
+            <p class="title" id="i1"></p>
+            <p class="title" id="i2"></p>
         </div>
-        <div class="button-container" id="portfolio-navigation"></div>
-        <div id="portfolio-container"></div>
-        <footer>
-            <!-- make sure to update the copyright notice as needed -->
-            <p>&copy; 2021 - 2024 Muhfasul Alam, All rights reserved.</p>
-        </footer>
+        <div class="button-container" id="pn"></div>
+        <div id="pc"></div>
+        <footer><p id="c"></p></footer>
     </div>
 </body>
 </html>

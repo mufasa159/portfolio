@@ -40,23 +40,36 @@ b {
     font-weight: 600;
 }
 
+footer {
+    margin: 30px 0px;
+}
+
 footer p {
     /* footer is hidden because of minimalism */
     color: var(--theme);
-    font-size: 10px;
+    font-size: 0.3em;
 }
 
 .container {
     position: relative;
     max-width: 1000px;
-    margin: 130px auto;
+    margin: 10em auto;
     padding: 0px 50px;
 }
 
-.title {
-    font-size: 18px;
+.container a,
+.container p,
+.title,
+.title a {
+    font-size: 1.15em;
     font-weight: 300;
     margin: 5px 0px;
+}
+
+.container a,
+.title a {
+    color: var(--flavor);
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
