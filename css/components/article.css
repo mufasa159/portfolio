@@ -1,0 +1,22 @@
+.article {
+    margin: -40px auto;
+    max-width: 800px;
+    text-align: justify;
+}
+
+.article h1 {
+    margin: 40px auto 30px auto;
+}
+
+.artcle a {
+    color: var(--flavor);
+    text-decoration: none;
+}
+
+.artcle p,
+.artcle a,
+.artcle ul li {
+    font-size: 1.15em;
+    font-weight: 300;
+    margin: 5px 0px;
+}

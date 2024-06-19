@@ -1,0 +1,16 @@
+div.blog a {
+    display: block;
+    font-size: 1.15em;
+    font-weight: 300;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.2em 0.8em;
+    margin: 0.6em 0em;
+    border-left: 10px solid var(--component-background);
+    border-radius: 3px;
+    transition: 0.2s;
+}
+
+div.blog a:hover {
+    border-left: 10px solid var(--flavor);
+}

@@ -1,0 +1,21 @@
+ul.projects {
+    padding: 0;
+    margin: 0;
+}
+
+ul.projects li {
+    list-style: none;
+    margin: 0.5em 0;
+    padding: 0;
+    font-size: 1.15em;
+    font-weight: 300;
+    color: var(--text-primary);
+}
+
+ul.projects li a {
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--flavor);
+    text-decoration: none;
+    margin: 0px 10px 0px 0px;
+}
