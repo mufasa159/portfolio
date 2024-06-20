@@ -45,9 +45,11 @@ async function render() {
         data[1].forEach((portfolio, index) => {
             const component = portfolio.component.toLowerCase();
             const id = `${index}_${component}`;
-            document.getElementById('portfolio-navigation').innerHTML += `
-                <button onclick="show('${id}', this)">${portfolio.title}</button>
-            `;
+
+            const button = document.createElement('button');
+            button.textContent = portfolio.title;
+            button.addEventListener('click', () => show(id, button));
+            document.getElementById('portfolio-navigation').appendChild(button);
 
             if (!css_loaded[component]) {
                 load_css(`components/${component}`);
