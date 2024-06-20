@@ -3,15 +3,13 @@ let html = {};
 function show(div, target) {
     target.classList.add('clicked');
     document.getElementById('portfolio-container').innerHTML = html[div];
-    document.querySelectorAll('#portfolio-navigation button').forEach(item =>
-        item !== target && item.classList.remove('clicked')
-    );
+    document.querySelectorAll('#portfolio-navigation button').forEach(item => {
+        if (item !== target) item.classList.remove('clicked');
+    });
 }
 
-const list = (name, url, description) => `<li><a href="${url}" target="_blank">${name}</a>${description}</li>`;
-
-const image = (id, thumbnail, src, alt, info = '', description = '') => `
-    <button class='photo' onclick="photo('${id}', '${src}', '${alt}', '${info}', '${description}')">
+const image = (id, thumbnail, src, alt, description = '') => `
+    <button class='photo' id='photo_${id}' onclick="photo('${id}', '${src}', '${alt}', '${description}')">
         <img src='${thumbnail}' alt='${alt}' />
     </button>
 `;
@@ -26,25 +24,10 @@ const error = () => `
 
 async function render() {
     load_css('buttons');
-
-    let endpoints = ['/data/home.json', '/data/portfolio.json']
-    const data = await Promise.all(endpoints.map(async x => {
-        const response = await fetch(x, {
-            method: 'GET', 
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        return response.json();
-    }));
-
+    const endpoints = ['/data/home.json', '/data/portfolio.json'];
+    const data = await Promise.all(endpoints.map(async (url) => (await fetch(url)).json()));
     const { greeting, introduction: { line_1, line_2 } } = data[0];
-
-    if (
-        (greeting && greeting.length > 50) ||
-        (line_1 && line_1.length > 90) ||
-        (line_2 && line_2.length > 90)
-    ) {
+    if ([greeting, line_1, line_2].some(text => text && text.length > 90)) {
         document.getElementById('main').innerHTML += `
             <h1>Content Too Long</h1>
             <p>Your introduction fucks up the minimalist vibe.</p>
@@ -52,65 +35,46 @@ async function render() {
         return;
     }
 
-    if (greeting) { document.getElementById('greeting').innerHTML = greeting; }
-    if (line_1) { document.getElementById('intro-1').innerHTML = line_1; }
-    if (line_2) { document.getElementById('intro-2').innerHTML = line_2; }
+    if (greeting) document.getElementById('greeting').innerHTML = greeting;
+    if (line_1) document.getElementById('intro-1').innerHTML = line_1;
+    if (line_2) document.getElementById('intro-2').innerHTML = line_2;
 
-    if (data[1].length !== 0) {
-        let css_loaded = {};
+    if (data[1].length) {
+        const css_loaded = {};
 
-        data[1].map((portfolio, index) => {
+        data[1].forEach((portfolio, index) => {
             const component = portfolio.component.toLowerCase();
             const id = `${index}_${component}`;
             document.getElementById('portfolio-navigation').innerHTML += `
                 <button onclick="show('${id}', this)">${portfolio.title}</button>
             `;
 
-            if (css_loaded[component] === undefined) {
+            if (!css_loaded[component]) {
                 load_css(`components/${component}`);
                 css_loaded[component] = true;
             }
 
+            const createHtml = (items, itemHandler) => items.map(itemHandler).join('');
+
             if (component === 'projects') {
-                html[id] = `<ul class='projects' id='${id}'>${portfolio.items.map(x => {
-                    if (
-                        x.name === undefined ||
-                        x.url === undefined ||
-                        x.description === undefined
-                    ) {
-                        return error();
-                    }
-                    return list(x.name, x.url, x.description);
-                }).join('')}</ul>`;
-
+                html[id] = `<ul class='projects' id='${id}'>${createHtml(portfolio.items, (x) => {
+                    if (![x.name, x.url, x.description].every(Boolean)) return error();
+                    return `<li><a href="${x.url}" target="_blank">${x.name}</a>${x.description}</li>`;
+                })}</ul>`;
             } else if (component === 'blog') {
-                html[id] = `<div class='blog' id='${id}'>${portfolio.items.map(x => {
-                    if (
-                        x.id === undefined ||
-                        x.heading === undefined
-                    ) {
-                        return error();
-                    }
+                html[id] = `<div class='blog' id='${id}'>${createHtml(portfolio.items, (x) => {
+                    if (![x.id, x.heading].every(Boolean)) return error();
                     return `<a href='?article=${x.id}'>${x.heading}</a>`;
-                }).join('')}</div>`;
-
+                })}</div>`;
             } else if (component === 'gallery') {
                 load_js('gallery');
-                html[id] = `<div class='gallery' id='${id}'>${portfolio.items.map(x => {
-                    if (
-                        x.id === undefined ||
-                        x.thumbnail === undefined ||
-                        x.image === undefined ||
-                        x.alt === undefined
-                    ) {
-                        return error();
-                    }
-                    return image(x.id, x.thumbnail, x.image, x.alt, x.info, x.description);
-                }).join('')}</div>`;
+                html[id] = `<div class='gallery' id='${id}'>${createHtml(portfolio.items, (x) => {
+                    if (![x.id, x.thumbnail, x.image, x.alt].every(Boolean)) return error();
+                    return image(x.id, x.thumbnail, x.image, x.alt, x.description);
+                })}</div>`;
             }
         });
     }
 }
-
 
 render();

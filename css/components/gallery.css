@@ -1,29 +1,26 @@
 .gallery {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    gap: 10px;
     margin: 0;
     padding: 0;
-    gap: 10px;
 }
 
 button.photo {
     margin: 0;
-    overflow: hidden;
-    border-radius: 5px;
+    padding: 0;
     width: 100px;
     height: 100px;
     border: 1px solid var(--btn-border);
-    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 button.photo img {
-    display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
+    display: block;
 }
 
 button.photo:hover {
@@ -32,7 +29,85 @@ button.photo:hover {
 
 @media screen and (max-width: 768px) {
     button.photo {
-        width: calc((100% / 4) - 10px);
-        height: calc((100% / 4) - 10px);
+        width: calc(25% - 10px);
+        height: calc(25% - 10px);
+    }
+}
+
+.gallery-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--theme);
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.gallery-modal-close {
+    width: 100%;
+    text-align: right;
+}
+
+.gallery-modal-close button {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 2em;
+    margin: 1% 1% 0 0;
+}
+
+.gallery-modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: var(--theme);
+}
+
+.gallery-modal-content img {
+    border: 1px solid var(--btn-border);
+    border-radius: 5px;
+    max-height: 80vh;
+    max-width: 90vw;
+    margin: 0 10px;
+}
+
+.gallery-modal-content p {
+    padding: 20px;
+    max-width: 400px;
+    font-size: 1.15em;
+    font-weight: 400;
+}
+
+.gallery-modal-navigation {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: var(--theme);
+}
+
+.gallery-modal-navigation button {
+    background: none;
+    color: var(--btn-text);
+    font-size: 1.5em;
+    font-weight: 400;
+    border: none;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 1220px) {
+    .gallery-modal-content {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .gallery-modal-content p {
+        text-align: justify;
+        max-width: 600px;
     }
 }
