@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-
 * {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--text-font);
     color: var(--text-primary);
 }
 
@@ -54,7 +52,7 @@ footer p {
 .container {
     position: relative;
     max-width: 1000px;
-    margin: 10em auto;
+    margin: 10em auto 4em auto;
     padding: 0px 50px;
 }
 
@@ -71,6 +69,12 @@ footer p {
 .title a {
     color: var(--flavor);
     text-decoration: none;
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        margin: 5em auto;
+    }
 }
 
 @media screen and (max-width: 768px) {

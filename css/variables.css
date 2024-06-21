@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 :root {
     --theme: #FFFFFF;
     --flavor: #2396FF;
 
+    --text-font: 'DM Sans', sans-serif;
     --text-primary: #232323;
     --text-secondary: #777777;
 
@@ -10,4 +13,11 @@
     --btn-text: #777777;
 
     --component-background: #D9D9D9;
+
+    /** for blog articles **/
+    --article-text-alignment: justify;
+    --code-background: #F5F5F5;
+    --code-border: #A5A5A5;
+    --table-header-background: #F5F5F5;
+    --table-border: #DDDDDD;
 }
