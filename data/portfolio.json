@@ -1,0 +1,112 @@
+[
+    {
+        "title": "Projects",
+        "component": "projects",
+        "items": [
+            {
+                "name": "Paracosmos Studio",
+                "url": "https://paracosmos.studio",
+                "description": "a techno creative studio based in New York City"
+            },
+            {
+                "name": "Aquasphere",
+                "url": "/",
+                "description": "a sustainable aquarium that recreates natural ocean habitats for home use"
+            },
+            {
+                "name": "Green Glow",
+                "url": "/",
+                "description": "solar-powered garden lights that change color based on plant health"
+            },
+            {
+                "name": "Soundscape",
+                "url": "/",
+                "description": "an immersive audio experience that turns your daily commute into a concert"
+            }
+        ]
+    },
+    {
+        "title": "Blog",
+        "component": "blog",
+        "items": [
+            {
+                "id": "the-art-of-letting-go",
+                "heading": "The Art of Letting Go: Finding Freedom in Minimalism"
+            },
+            {
+                "id": "SD23RF5Q9P",
+                "heading": "The Beauty of Imperfection: Celebrating Wabi-Sabi in Daily Life"
+            },
+            {
+                "id": "3",
+                "heading": "Connecting Through Stories: The Timeless Power of Oral Traditions"
+            },
+            {
+                "id": "00004",
+                "heading": "Unlocking the Mysteries of Asynchronous Programming"
+            }
+        ]
+    },
+    {
+        "title": "Gallery",
+        "component": "gallery",
+        "items": [
+            {
+                "id": "image-1",
+                "alt": "Placeholder Vertical",
+                "image": "data/gallery/placeholder_500x700.png",
+                "thumbnail": "/data/gallery/thumbnails/placeholder_100x100.png"
+            },
+            {
+                "id": "image-2",
+                "alt": "Placeholder Vertical",
+                "image": "data/gallery/placeholder_500x700.png",
+                "thumbnail": "/data/gallery/thumbnails/placeholder_100x100.png",
+                "description": "This is an example of a 5:7 ratio vertical image with an HTML <b>description</b> that can <s>not</s> be <u>modified</u> to include <i>text</i> styling."
+            },
+            {
+                "id": "image-3",
+                "alt": "Placeholder Horizontal",
+                "image": "data/gallery/placeholder_1400x1000.png",
+                "thumbnail": "/data/gallery/thumbnails/placeholder_100x100.png"
+            },
+            {
+                "id": "image-4",
+                "alt": "Placeholder Horizontal",
+                "image": "data/gallery/placeholder_1400x1000.png",
+                "thumbnail": "/data/gallery/thumbnails/placeholder_100x100.png",
+                "description": "This is an example of a 7:5 ratio horizontal image with an HTML <b>description</b> that can <s>not</s> be <u>modified</u> to include <i>text</i> styling."
+            }
+        ]
+    },
+    {
+        "title": "Cards",
+        "component": "cards",
+        "items": [
+            {
+                "alt": "Google",
+                "image": "/data/cards/placeholder_300x120.png",
+                "name": "Google",
+                "url": "https://www.google.com"
+            },
+            {
+                "alt": "Microsoft Bing",
+                "image": "/data/cards/placeholder_300x120.png",
+                "name": "Bing",
+                "url": "https://www.bing.com"
+            },
+            {
+                "alt": "DuckDuckGo",
+                "image": "/data/cards/placeholder_300x120.png",
+                "name": "DuckDuckGo",
+                "url": "https://www.duckduckgo.com"
+            },
+            {
+                "alt": "Yahoo",
+                "image": "/data/cards/placeholder_300x120.png",
+                "name": "Yahoo",
+                "url": "https://www.yahoo.com"
+            }
+        ]
+    }
+]

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mufasa.cc/sitemap.xml
+Sitemap: https://localhost:5500/sitemap.xml
