@@ -2,7 +2,7 @@ const q = new URLSearchParams(window.location.search);
 const article = q.get('article');
 
 if (article) {
-    fetch('/data/routers.json', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+    fetch('./data/routers.json', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
         .then(response => response.json())
         .then(data => {
             const articleUrl = data[article];

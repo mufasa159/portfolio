@@ -24,7 +24,7 @@ const error = () => `
 
 async function render() {
     load_css('buttons');
-    const endpoints = ['/data/home.json', '/data/portfolio.json'];
+    const endpoints = ['./data/home.json', './data/portfolio.json'];
     const data = await Promise.all(endpoints.map(async (url) => (await fetch(url)).json()));
     const { greeting, introduction: { line_1, line_2 } } = data[0];
     if ([greeting, line_1, line_2].some(text => text && text.length > 90)) {
