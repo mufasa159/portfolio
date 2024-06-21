@@ -32,7 +32,7 @@ const navigate = async (id, direction) => {
     const div = direction === 'prev' ? photo.previousElementSibling : photo.nextElementSibling;
 
     if (!div) {
-        console.error("Invalid direction or no adjacent element");
+        console.log("Invalid direction or no adjacent element");
         return;
     }
 

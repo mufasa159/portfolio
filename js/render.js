@@ -63,16 +63,25 @@ async function render() {
                     if (![x.name, x.url, x.description].every(Boolean)) return error();
                     return `<li><a href="${x.url}" target="_blank">${x.name}</a>${x.description}</li>`;
                 })}</ul>`;
+
             } else if (component === 'blog') {
                 html[id] = `<div class='blog' id='${id}'>${createHtml(portfolio.items, (x) => {
                     if (![x.id, x.heading].every(Boolean)) return error();
                     return `<a href='?article=${x.id}'>${x.heading}</a>`;
                 })}</div>`;
+
             } else if (component === 'gallery') {
                 load_js('gallery');
                 html[id] = `<div class='gallery' id='${id}'>${createHtml(portfolio.items, (x) => {
                     if (![x.id, x.thumbnail, x.image, x.alt].every(Boolean)) return error();
                     return image(x.id, x.thumbnail, x.image, x.alt, x.description);
+                })}</div>`;
+
+            } else if (component === 'cards') {
+                html[id] = `<div class='cards' id='${id}'>${createHtml(portfolio.items, (x) => {
+                    if (![x.alt, x.image, x.name, x.url].every(Boolean)) return error();
+                    return `<a class='card' href='${x.url}' target='_blank'><img src='${x.image}' alt='${x.alt}' />
+                    <p>${x.name.length > 25 ? '<b style="color:red">Error: card title too long</b>' : x.name}</p></a>`;
                 })}</div>`;
             }
         });
