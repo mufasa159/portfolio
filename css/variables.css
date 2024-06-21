@@ -16,8 +16,10 @@
 
     /** for blog articles **/
     --article-text-alignment: justify;
-    --code-background: #F5F5F5;
-    --code-border: #A5A5A5;
+    --code-background: #F8F8F8;
+    --code-border: #CACACA;
+    --code-text-block: #232323;
+    --code-text-single: #Bf541F;
     --table-header-background: #F5F5F5;
     --table-border: #DDDDDD;
 }

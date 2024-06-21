@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 .article {
     margin: -80px auto;
     max-width: 800px;
@@ -57,13 +59,38 @@ hr {
     border-top: 1px solid var(--component-background);
 }
 
-pre {
-    background-color: var(--code-background);
-    padding: 20px;
-    border: 1px solid var(--code-border);
-    border-radius: 5px;
-    font-size: 1em;
+pre,
+code {
+    font-family: 'Roboto Mono', monospace;
+    max-width: 100%;
     overflow-x: auto;
+    font-weight: 400;
+}
+
+pre {
+    font-size: 0.9rem;
+    background-color: var(--code-background);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--code-border);
+    color: var(--code-text-block);
+}
+
+code {
+    font-size: 0.8rem;
+    background-color: var(--code-background);
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid var(--code-border);
+    color: var(--code-text-single);
+}
+
+pre code {
+    font-size: 0.9rem;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: var(--code-text-block);
 }
 
 img {

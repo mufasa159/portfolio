@@ -34,7 +34,8 @@ s::after {
     content: " [end of stricken text] ";
 }
 
-b {
+b,
+strong {
     font-weight: 600;
 }
 
