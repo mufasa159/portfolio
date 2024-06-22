@@ -83,6 +83,13 @@ async function render() {
                     return `<a class='card' href='${x.url}' target='_blank'><img src='${x.image}' alt='${x.alt}' />
                     <p>${x.name.length > 25 ? '<b style="color:red">Error: card title too long</b>' : x.name}</p></a>`;
                 })}</div>`;
+
+            } else if (component === 'showcase') {
+                html[id] = `<div class='showcase' id='${id}'>${createHtml(portfolio.items, (x) => {
+                    if (![x.alt, x.image, x.name, x.url].every(Boolean)) return error();
+                    return `<a class='case' href='${x.url}' target='_blank'><img src='${x.image}' alt='${x.alt}' />
+                    <p>${x.name.length > 25 ? '<b style="color:red">Error: case title too long</b>' : x.name}</p></a>`;
+                })}</div>`;
             }
         });
     }

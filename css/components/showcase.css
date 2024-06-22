@@ -1,0 +1,89 @@
+.showcase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+a.case {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: 0.2s;
+    min-width: 200px;
+    width: calc(25% - 10px);
+    border-radius: 5px;
+    border: 1px solid var(--btn-border);
+}
+
+a.case img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    background-color: var(--component-background);
+}
+
+a.case p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 10px 30px;
+    margin: 0;
+    text-align: center;
+    align-content: center;
+    font-size: 0.9em;
+    font-weight: 400;
+    opacity: 0;
+    background: var(--showcase-overlay);
+    color: var(--showcase-text);
+    transition: opacity 0.3s ease;
+    border-radius: 4px;
+}
+
+a.case:hover p {
+    opacity: 1;
+}
+
+@media screen and (max-width: 1025px) {
+    a.case {
+        width: calc(50% - 10px);
+    }
+
+    a.case img {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 674px) {
+    a.case {
+        width: 100%;
+    }
+
+    a.case img {
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .showcase {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a.case {
+        width: 100%;
+    }
+}

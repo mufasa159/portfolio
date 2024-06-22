@@ -108,5 +108,35 @@
                 "url": "https://www.yahoo.com"
             }
         ]
+    },
+    {
+        "title": "Showcase",
+        "component": "showcase",
+        "items": [
+            {
+                "alt": "Bowl",
+                "image": "./data/showcase/skate-1.webp",
+                "name": "Bowl",
+                "url": "https://giphy.com/gifs/skate-bowl-skateordie-3oEduFTfx1FRTRGfEQ"
+            },
+            {
+                "alt": "Fully Flaired",
+                "image": "./data/showcase/skate-2.webp",
+                "name": "Fully Flaired",
+                "url": "https://giphy.com/gifs/skateboarding-skate-cosmestudio-xT0BKEFPYkaZoniHxS"
+            },
+            {
+                "alt": "Frame by Frame",
+                "image": "./data/showcase/skate-3.webp",
+                "name": "Frame by Frame",
+                "url": "https://giphy.com/gifs/loop-skate-trick-mXz2Tjn3wfFhF8A9mG"
+            },
+            {
+                "alt": "Skateboarding",
+                "image": "./data/showcase/skate-4.webp",
+                "name": "Skateboarding",
+                "url": "https://giphy.com/gifs/animation-skate-skateboarding-l3q2B53AMI0VmrxgQ"
+            }
+        ]
     }
 ]
