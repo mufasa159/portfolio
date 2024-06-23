@@ -31,7 +31,7 @@ button.photo:hover {
 @media screen and (max-width: 768px) {
     button.photo {
         width: calc(25% - 10px);
-        height: calc(25% - 10px);
+        height: 85px;
     }
 }
 

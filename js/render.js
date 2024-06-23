@@ -41,6 +41,7 @@ async function render() {
 
     if (data[1].length) {
         const css_loaded = {};
+        const js_loaded = {};
 
         data[1].forEach((portfolio, index) => {
             const component = portfolio.component.toLowerCase();
@@ -71,7 +72,10 @@ async function render() {
                 })}</div>`;
 
             } else if (component === 'gallery') {
-                load_js('gallery');
+                if (!js_loaded[component]) {
+                    load_js('gallery');
+                    js_loaded[component] = true;
+                }
                 html[id] = `<div class='gallery' id='${id}'>${createHtml(portfolio.items, (x) => {
                     if (![x.id, x.thumbnail, x.image, x.alt].every(Boolean)) return error();
                     return image(x.id, x.thumbnail, x.image, x.alt, x.description);
