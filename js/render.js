@@ -1,12 +1,12 @@
 let html = {};
 
-function show(div, target) {
+const show = async (div, target) => {
     target.classList.add('clicked');
     document.getElementById('portfolio-container').innerHTML = html[div];
     document.querySelectorAll('#portfolio-navigation button').forEach(item => {
         if (item !== target) item.classList.remove('clicked');
     });
-}
+};
 
 const image = (id, thumbnail, src, alt, description = '') => `
     <button class='photo' id='photo_${id}' onclick="photo('${id}', '${src}', '${alt}', '${description}')">
@@ -40,21 +40,26 @@ async function render() {
     if (line_2) document.getElementById('intro-2').innerHTML = line_2;
 
     if (data[1].length) {
-        const css_loaded = {};
-        const js_loaded = {};
+        const css_loaded = new Set();
+        const js_loaded = new Set();
 
         data[1].forEach((portfolio, index) => {
             const component = portfolio.component.toLowerCase();
             const id = `${index}_${component}`;
+            let attach_now = false;
 
-            const button = document.createElement('button');
-            button.textContent = portfolio.title;
-            button.addEventListener('click', () => show(id, button));
-            document.getElementById('portfolio-navigation').appendChild(button);
+            if (data[1].length > 1) {
+                const button = document.createElement('button');
+                button.textContent = portfolio.title;
+                button.addEventListener('click', () => show(id, button));
+                document.getElementById('portfolio-navigation').appendChild(button);
+            } else {
+                attach_now = true;
+            }
 
-            if (!css_loaded[component]) {
+            if (!css_loaded.has(component)) {
                 load_css(`components/${component}`);
-                css_loaded[component] = true;
+                css_loaded.add(component);
             }
 
             const createHtml = (items, itemHandler) => items.map(itemHandler).join('');
@@ -72,9 +77,9 @@ async function render() {
                 })}</div>`;
 
             } else if (component === 'gallery') {
-                if (!js_loaded[component]) {
+                if (!js_loaded.has(component)) {
                     load_js('gallery');
-                    js_loaded[component] = true;
+                    js_loaded.add(component);
                 }
                 html[id] = `<div class='gallery' id='${id}'>${createHtml(portfolio.items, (x) => {
                     if (![x.id, x.thumbnail, x.image, x.alt].every(Boolean)) return error();
@@ -94,6 +99,12 @@ async function render() {
                     return `<a class='case' href='${x.url}' target='_blank'><img src='${x.image}' alt='${x.alt}' />
                     <p>${x.name.length > 25 ? '<b style="color:red">Error: case title too long</b>' : x.name}</p></a>`;
                 })}</div>`;
+            }
+
+            if (attach_now) {
+                document.getElementById('portfolio-navigation').style.margin = '20px 0px';
+                document.getElementById('portfolio-container').innerHTML = html[id];
+                return;
             }
         });
     }
