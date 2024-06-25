@@ -138,5 +138,36 @@
                 "url": "https://giphy.com/gifs/animation-skate-skateboarding-l3q2B53AMI0VmrxgQ"
             }
         ]
+    },
+    {
+        "title": "Table",
+        "component": "table",
+        "headers": [
+            "Title",
+            "Date",
+            "Description"
+        ],
+        "items": [
+            {
+                "1": "<a href=\"https://en.wikipedia.org/wiki/New_Year's_Day\" target='_blank'>New Year's Day</a>",
+                "2": "January 1st",
+                "3": "Celebrating the start of a new year with friends and family"
+            },
+            {
+                "1": "<a href=\"https://en.wikipedia.org/wiki/Valentine's_Day\" target='_blank'>Valentine's Day</a>",
+                "2": "February 14th",
+                "3": "Spending time with loved ones and sharing tokens of affection"
+            },
+            {
+                "1": "<a href='https://en.wikipedia.org/wiki/Independence_Day_(United_States)' target='_blank'>Independence Day</a>",
+                "2": "July 4th",
+                "3": "Honoring the birth of the United States of America with fireworks and parades"
+            },
+            {
+                "1": "<a href='https://en.wikipedia.org/wiki/Halloween' target='_blank'>Halloween</a>",
+                "2": "October 31st",
+                "3": "Dressing up in costumes, carving pumpkins, and going trick-or-treating"
+            }
+        ]
     }
 ]

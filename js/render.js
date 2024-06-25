@@ -99,6 +99,13 @@ async function render() {
                     return `<a class='case' href='${x.url}' target='_blank'><img src='${x.image}' alt='${x.alt}' />
                     <p>${x.name.length > 25 ? '<b style="color:red">Error: case title too long</b>' : x.name}</p></a>`;
                 })}</div>`;
+
+            } else if (component === 'table') {
+                html[id] = `<table class='table' id='${id}'><tr>${portfolio.headers.map(header => {
+                    if (header !== "") return `<th>${header}</th>`}).join('')
+                }</tr>${portfolio.items.map((item, i) => `<tr>${Object.values(item).map((cell, j) => `<td ${
+                    portfolio.headers[j] ? ("class='has-data-label' data-label='" + portfolio.headers[j] + "'") : ""
+                }>${cell}</td>`).join('')}</tr>`).join('')}</table>`;
             }
 
             if (attach_now) {
